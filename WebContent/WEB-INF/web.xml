@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>GestioneArticoliJspServletJdbc</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	
+	<filter>
+		<filter-name>SessionCheckFilter</filter-name>
+		<filter-class>it.gestionearticoli.web.filter.SessionCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>GuestCheckFilter</filter-name>
+		<filter-class>it.gestionearticoli.web.filter.GuestCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>GuestCheckFilter</filter-name>
+		<url-pattern>/PrepareInsertArticoloServlet</url-pattern>
+		<url-pattern>/articolo/insert_articolo.jsp</url-pattern>
+		<url-pattern>/PrepareUpdateArticoloServlet</url-pattern>
+		<url-pattern>/articolo/update_articolo.jsp</url-pattern>
+		<url-pattern>/ExecuteInsertArticoloServlet</url-pattern>
+		<url-pattern>/ExecuteUpdateArticoloServlet</url-pattern>
+		<url-pattern>/DeleteArticoloServlet</url-pattern>
+
+		<url-pattern>/PrepareInsertCategoriaServlet</url-pattern>
+		<url-pattern>/categoria/insert_categoria.jsp</url-pattern>
+		<url-pattern>/PrepareUpdateCategoriaServlet</url-pattern>
+		<url-pattern>/categoria/update_categoria.jsp</url-pattern>
+		<url-pattern>/ExecuteInsertCategoriaServlet</url-pattern>
+		<url-pattern>/ExecuteUpdateCategoriaServlet</url-pattern>
+		<url-pattern>/DeleteCategoriaServlet</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>OperatorCheckFilter</filter-name>
+		<filter-class>it.gestionearticoli.web.filter.OperatorCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OperatorCheckFilter</filter-name>
+		<url-pattern>/DeleteCategoriaServlet</url-pattern>
+		<url-pattern>/DeleteArticoloServlet</url-pattern>
+	</filter-mapping>
+
+</web-app>

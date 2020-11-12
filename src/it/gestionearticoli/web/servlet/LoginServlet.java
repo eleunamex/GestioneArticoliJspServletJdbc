@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 		UtenteService service = MyServiceFactory.getUtenteServiceInstance();
 
 		try {
-			utente = service.autenticazione(usernameParameter, passwordParameter);
+			utente = service.authentication(usernameParameter, passwordParameter);
 			if (utente != null) {
 				HttpSession oldSession = request.getSession(false);
 				if (oldSession != null) { // se già esiste una sessione

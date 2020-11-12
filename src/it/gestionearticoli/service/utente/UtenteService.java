@@ -7,6 +7,6 @@ public interface UtenteService {
 
 	public void setUtenteDao(UtenteDAO utenteDao);
 	
-	public Utente autenticazione(String username, String password) throws Exception ;
+	public Utente authentication(String username, String password) throws Exception ;
 	
 }

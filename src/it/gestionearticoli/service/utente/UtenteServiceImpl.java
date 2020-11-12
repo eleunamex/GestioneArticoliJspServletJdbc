@@ -1,8 +1,7 @@
 package it.gestionearticoli.service.utente;
 
 import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import it.gestionearticoli.connection.MyConnection;
 import it.gestionearticoli.dao.Constants;
@@ -19,25 +18,20 @@ public class UtenteServiceImpl implements UtenteService {
 	}
 
 	@Override
-	public Utente autenticazione(String username, String password) throws Exception {
-		List<Utente> listaUtenti = new ArrayList<>();
-		Utente utenteResult = null;
+	public Utente authentication(String username, String password) throws Exception {
+		Utente result = new Utente();
 		try (Connection connection = MyConnection.getConnection(Constants.DRIVER_NAME, Constants.CONNECTION_URL)) {
+
 			utenteDao.setConnection(connection);
 
-			listaUtenti = utenteDao.list();
-			for (Utente utente : listaUtenti) {
-				if(utente.getUsername().equals(username) && utente.getPassword().equals(password)) {
-					utenteResult=new Utente();
-					return utenteResult=utente;
-				}
-			}
+			result = utenteDao.autenticazione(username, password);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
-		return utenteResult;
+		return result;
 	}
+	
 
 }

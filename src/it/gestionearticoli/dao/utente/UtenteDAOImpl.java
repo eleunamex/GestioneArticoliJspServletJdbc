@@ -1,7 +1,9 @@
 package it.gestionearticoli.dao.utente;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,34 @@ public class UtenteDAOImpl extends AbstractMySQLDAO implements UtenteDAO {
 		return result;
 	}
 
+	
+	public Utente autenticazione(String username, String password) throws Exception {
+		if (isNotActive() || username == null || password== null) {
+			return null;
+		}
+		String query = "select * from utente where username=? and pw=?";
+		Utente utente = null;
+		try (PreparedStatement ps = connection.prepareStatement(query)) {
+			ps.setString(1, username);
+			ps.setString(2, password);
+			try (ResultSet rs = ps.executeQuery()) {
+				if (rs.next()) {
+					utente = new Utente();
+					utente.setId(rs.getLong("ID_UTENTE"));
+					utente.setNome(rs.getString("NOME"));
+					utente.setCognome(rs.getString("COGNOME"));
+					utente.setCodice_fiscale(rs.getString("CODICE_FISCALE"));
+					utente.setUsername(rs.getString("USERNAME"));
+					utente.setPassword(rs.getString("PW"));
+					utente.setRuolo(rs.getString("RUOLO"));
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return utente;
+	}
+	
 	@Override
 	public Utente get(Long id) throws Exception {
 		// TODO Auto-generated method stub

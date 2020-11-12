@@ -94,7 +94,7 @@ body {
 							<span class="badge badge-warning">(You)</span>
 						</c:if>
 					</h2>
-					<p>Sono onnipotenti.</p>
+					<p>Possono fare qualsiasi cosa.</p>
 
 				</div>
 			</div>

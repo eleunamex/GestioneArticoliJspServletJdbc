@@ -86,9 +86,6 @@
 											</button>
 										</c:if>
 									</td>
-									<!--
-									<a class="btn btn-outline-danger btn-sm"href="ConfermaDeleteArticoloServlet?idDaInviareComeParametro=<c:out value="${articolo.getId()}"/>">Delete</a>
-									-->
 									
 								</tr>
 

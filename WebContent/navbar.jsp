@@ -10,9 +10,11 @@
 
 	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home
+			<li class="nav-item active">
+				<a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">Home
 					<span class="sr-only">(current)</span>
-			</a></li>
+				</a>
+			</li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="dropdown01"
 				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Articoli</a>
@@ -22,27 +24,30 @@
 						<c:if test = "${sessionScope.user.ruolo eq 'admin' || sessionScope.user.ruolo eq 'operator'}">
 							<a class="dropdown-item" href="PrepareInsertArticoloServlet">Inserisci articolo</a> 
 						</c:if>
-				</div></li>
-				<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="dropdown01"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorie</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="dropdown01"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorie
+				</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="ListCategorieServlet">Lista categorie</a> 
 						<a class="dropdown-item" href="categoria/cerca_categoria.jsp">Cerca categoria</a> 
 						<c:if test = "${sessionScope.user.ruolo eq 'admin' || sessionScope.user.ruolo eq 'operator'}">
 							<a class="dropdown-item" href="PrepareInsertCategoriaServlet">Inserisci categoria</a>
 						</c:if>
-				</div></li>
-			<li class="nav-item"><a class="nav-link" >
-					${sessionScope.user.nome} ${sessionScope.user.cognome}
-					${sessionScope.user.codice_fiscale}</a></li>
+				</div>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" >
+				${sessionScope.user.nome} ${sessionScope.user.cognome}
+				${sessionScope.user.codice_fiscale}
+			</a>
+			</li>
 
 		</ul>
-
 		<form class="form-inline my-2 my-lg-0">
-
-			<a class="btn btn-outline-light my-2 my-sm-0" href="LogoutServlet">Sign
-				out</a>
+			<a class="btn btn-outline-light my-2 my-sm-0" href="LogoutServlet">Sign out</a>
 		</form>
 
 	</div>

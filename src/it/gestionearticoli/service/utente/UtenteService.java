@@ -6,7 +6,7 @@ import it.gestionearticoli.model.Utente;
 public interface UtenteService {
 
 	public void setUtenteDao(UtenteDAO utenteDao);
-	
-	public Utente authentication(String username, String password) throws Exception ;
-	
+
+	public Utente authentication(String username, String password) throws Exception;
+
 }

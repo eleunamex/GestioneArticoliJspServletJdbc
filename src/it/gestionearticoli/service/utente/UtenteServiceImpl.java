@@ -2,7 +2,6 @@ package it.gestionearticoli.service.utente;
 
 import java.sql.Connection;
 
-
 import it.gestionearticoli.connection.MyConnection;
 import it.gestionearticoli.dao.Constants;
 import it.gestionearticoli.dao.utente.UtenteDAO;
@@ -32,6 +31,5 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 		return result;
 	}
-	
 
 }
